@@ -1,5 +1,14 @@
   language: python
+
   python:
     - "3.6"
+
+  install:
+    - pip install python-coveralls
+
   script:
     - pytest
+    - coverage run k_means/hello.py test
+
+  after_success:
+    - coveralls
